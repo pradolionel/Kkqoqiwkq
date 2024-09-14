@@ -33,7 +33,7 @@ class DiscordClient
 		isInitialized = false;*/
 	}
 	
-	private static function onReady(request:cpp.RawConstPointer<DiscordUser>):Void {
+	private static function onReady(/*request:cpp.RawConstPointer<DiscordUser>):Void*/) {
 		/*var requestPtr:cpp.Star<DiscordUser> = cpp.ConstPointer.fromRaw(request).ptr;
 
 		if (Std.parseInt(cast(requestPtr.discriminator, String)) != 0) //New Discord IDs/Discriminator system
@@ -44,12 +44,12 @@ class DiscordClient
 		changePresence();*/
 	}
 
-	private static function onError(errorCode:Int, message:cpp.ConstCharStar):Void {
-		trace('Discord: Error ($errorCode: ${cast(message, String)})');
+	private static function onError()*/errorCode:Int, message:cpp.ConstCharStar):Void*/ {
+		//trace('Discord: Error ($errorCode: ${cast(message, String)})');
 	}
 
-	private static function onDisconnected(errorCode:Int, message:cpp.ConstCharStar):Void {
-		trace('Discord: Disconnected ($errorCode: ${cast(message, String)})');
+	private static function onDisconnected()/*errorCode:Int, message:cpp.ConstCharStar):Void*/ {
+		//trace('Discord: Disconnected ($errorCode: ${cast(message, String)})');
 	}
 
 	public static function initialize()
