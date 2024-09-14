@@ -118,17 +118,17 @@ class DiscordClient
 		return newID;*/
 	}
 
-	/*#if MODS_ALLOWED
+	#if MODS_ALLOWED
 	public static function loadModRPC()
 	{
-		var pack:Dynamic = Mods.getPack();
+		/*var pack:Dynamic = Mods.getPack();
 		if(pack != null && pack.discordRPC != null && pack.discordRPC != clientID)
 		{
 			clientID = pack.discordRPC;
 			//trace('Changing clientID! $clientID, $_defaultID');
-		}
+		}*/
 	}
-	#end*/
+	#end
 
 	#if LUA_ALLOWED
 	public static function addLuaCallbacks(lua:State) {
