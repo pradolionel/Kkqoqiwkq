@@ -1,19 +1,18 @@
-on: [workflow_dispatch]
+on: workflow_dispatch
 jobs:
   buildAndroid:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.0
       - name: Setup Android NDK
-      id: setup-ndk
-      uses: nttld/setup-ndk@main
-      with:
-        ndk-version: r21e
-    - name: Setup Java JDK
-      uses: actions/setup-java@v4
-      with:
-        distribution: 'temurin'
-        java-version: '11'
+        id: setup-ndk
+        uses: nttld/setup-ndk@main
+        with:
+          ndk-version: r21e
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
       - uses: krdlab/setup-haxe@v1
         with:
           haxe-version: 4.3.6
@@ -21,13 +20,13 @@ jobs:
         run: |
           haxelib git hmm https://github.com/funkincrew/hmm
           haxelib run hmm install
-        - name: Configure Android
-      run: |
+      - name: Configure Android
+        run: |
           haxelib run lime config ANDROID_SDK $ANDROID_HOME
           haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_HOME
           haxelib run lime config JAVA_HOME $JAVA_HOME
           haxelib run lime config ANDROID_SETUP true
-      env:
+        env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
       - name: Compile
         run: |
