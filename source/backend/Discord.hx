@@ -1,14 +1,12 @@
 package backend;
 
-#if DISCORD_ALLOWED
-import Sys.sleep;
+/*import Sys.sleep;
 import lime.app.Application;
 import hxdiscord_rpc.Discord;
-import hxdiscord_rpc.Types;
+import hxdiscord_rpc.Types;*/
 
-class DiscordClient
-{
-	public static var isInitialized:Bool = false;
+class DiscordClient {}
+	/*public static var isInitialized:Bool = false;
 	private static final _defaultID:String = "863222024192262205";
 	public static var clientID(default, set):String = _defaultID;
 	private static var presence:DiscordRichPresence = DiscordRichPresence.create();
@@ -142,6 +140,4 @@ class DiscordClient
 			clientID = newID;
 		});
 	}
-	#end
-}
-#end
+	#end*/
