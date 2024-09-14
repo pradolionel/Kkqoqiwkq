@@ -1,8 +1,8 @@
 package;
 
-#if android
+/*#if android
 import android.content.Context;
-#end
+#end*/
 
 import debug.FPSCounter;
 
@@ -62,11 +62,11 @@ class Main extends Sprite
 		super();
 
 		// Credits to MAJigsaw77 (he's the og author for this code)
-		#if android
+		/*#if android
 		Sys.setCwd(Path.addTrailingSlash(Context.getExternalFilesDir()));
 		#elseif ios
 		Sys.setCwd(lime.system.System.applicationStorageDirectory);
-		#end
+		#end*/
 
 		if (stage != null)
 		{
@@ -90,16 +90,17 @@ class Main extends Sprite
 
 	private function setupGame():Void
 	{
-		var stageWidth:Int = Lib.current.stage.stageWidth;
-		var stageHeight:Int = Lib.current.stage.stageHeight;
+		//var stageWidth:Int = Lib.current.stage.stageWidth;
+		//var stageHeight:Int = Lib.current.stage.stageHeight;
 
 		if (game.zoom == -1.0)
 		{
-			var ratioX:Float = stageWidth / game.width;
+			/*var ratioX:Float = stageWidth / game.width;
 			var ratioY:Float = stageHeight / game.height;
 			game.zoom = Math.min(ratioX, ratioY);
 			game.width = Math.ceil(stageWidth / game.zoom);
-			game.height = Math.ceil(stageHeight / game.zoom);
+			game.height = Math.ceil(stageHeight / game.zoom);*/
+			game.zoom = 1.0;
 		}
 	
 		#if LUA_ALLOWED Lua.set_callbacks_function(cpp.Callable.fromStaticFunction(psychlua.CallbackHandler.call)); #end
@@ -108,15 +109,15 @@ class Main extends Sprite
 		#if ACHIEVEMENTS_ALLOWED Achievements.load(); #end
 		addChild(new FlxGame(game.width, game.height, game.initialState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen));
 
-		#if !mobile
+		//#if !mobile
 		fpsVar = new FPSCounter(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
-		Lib.current.stage.align = "tl";
-		Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
+		//Lib.current.stage.align = "tl";
+		//Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
 		if(fpsVar != null) {
 			fpsVar.visible = ClientPrefs.data.showFPS;
 		}
-		#end
+		//#end
 
 		#if linux
 		var icon = Image.fromFile("icon.png");
