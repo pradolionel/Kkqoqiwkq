@@ -44,7 +44,7 @@ class DiscordClient
 		changePresence();*/
 	}
 
-	private static function onError()*/errorCode:Int, message:cpp.ConstCharStar):Void*/ {
+	private static function onError()/*errorCode:Int, message:cpp.ConstCharStar):Void*/ {
 		//trace('Discord: Error ($errorCode: ${cast(message, String)})');
 	}
 
