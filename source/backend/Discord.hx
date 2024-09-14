@@ -39,9 +39,9 @@ class DiscordClient
 		if (Std.parseInt(cast(requestPtr.discriminator, String)) != 0) //New Discord IDs/Discriminator system
 			trace('(Discord) Connected to User (${cast(requestPtr.username, String)}#${cast(requestPtr.discriminator, String)})');
 		else //Old discriminators
-			trace('(Discord) Connected to User (${cast(requestPtr.username, String)})');*/
+			trace('(Discord) Connected to User (${cast(requestPtr.username, String)})');
 
-		changePresence();
+		changePresence();*/
 	}
 
 	private static function onError(errorCode:Int, message:cpp.ConstCharStar):Void {
