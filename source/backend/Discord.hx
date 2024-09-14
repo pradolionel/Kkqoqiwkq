@@ -33,7 +33,7 @@ class DiscordClient
 		isInitialized = false;*/
 	}
 	
-	private static function onReady(/*request:cpp.RawConstPointer<DiscordUser>):Void*/) {
+	private static function onReady()/*request:cpp.RawConstPointer<DiscordUser>):Void*/ {
 		/*var requestPtr:cpp.Star<DiscordUser> = cpp.ConstPointer.fromRaw(request).ptr;
 
 		if (Std.parseInt(cast(requestPtr.discriminator, String)) != 0) //New Discord IDs/Discriminator system
@@ -79,7 +79,7 @@ class DiscordClient
 		isInitialized = true;*/
 	}
 
-	public static function changePresence(?details:String = 'In the Menus', ?state:Null<String>, ?smallImageKey : String, ?hasStartTimestamp : Bool, ?endTimestamp: Float)
+	public static function changePresence()/*?details:String = 'In the Menus', ?state:Null<String>, ?smallImageKey : String, ?hasStartTimestamp : Bool, ?endTimestamp: Float)*/
 	{
 		/*var startTimestamp:Float = 0;
 		if (hasStartTimestamp) startTimestamp = Date.now().getTime();
@@ -104,7 +104,7 @@ class DiscordClient
 	public static function resetClientID() {}
 		//clientID = _defaultID;
 
-	private static function set_clientID(newID:String)
+	private static function set_clientID()/*_newID:String)*/
 	{
 		/*var change:Bool = (clientID != newID);
 		clientID = newID;
@@ -131,7 +131,7 @@ class DiscordClient
 	#end
 
 	#if LUA_ALLOWED
-	public static function addLuaCallbacks(lua:State) {
+	public static function addLuaCallbacks()/*lua:State)*/ {
 		/*Lua_helper.add_callback(lua, "changeDiscordPresence", function(details:String, state:Null<String>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float) {
 			changePresence(details, state, smallImageKey, hasStartTimestamp, endTimestamp);
 		});
